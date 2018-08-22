@@ -1,0 +1,10 @@
+<% @profiles.each do |pro| %>
+    <tr>
+        <td><%= pro.first_name %></td>
+        <td><%= pro.last_name %></td>
+        <td><%= pro.birthdate %></td>
+        <td><%= pro.profileable_type %></td>
+        <td><%= pro.email %></td>
+        <%# <td><%= link_to "Destroy", profile, method: :delete, data: { confirm: "Are you sure?" } %></td>
+    </tr>
+<% end %>

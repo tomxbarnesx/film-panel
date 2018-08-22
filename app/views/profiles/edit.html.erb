@@ -1,0 +1,43 @@
+<h1>Edit Profile</h1>
+ 
+<%= form_with(model: @profile, local: true) do |form| %>
+ 
+  <% if @profile.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@profile.errors.count, "error") %> prohibited
+        this Profile from being saved:
+      </h2>
+      <ul>
+        <% @profile.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= form.label :first_name %><br>
+    <%= form.text_field :first_name %>
+  </p>
+ 
+  <p>
+    <%= form.label :last_name %><br>
+    <%= form.text_area :last_name %>
+  </p>
+
+  <p>
+    <%= form.label :email %><br>
+    <%= form.text_area :email %>
+  </p>
+
+  <p>
+    <%= form.label :profileable_type %><br>
+    <%= form.text_area :profileable_type %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+ 
+<% end %>
