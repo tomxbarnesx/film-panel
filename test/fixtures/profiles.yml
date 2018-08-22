@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  first_name: MyString
+  last_name: MyString
+  email: MyString
+  birthdate: 2018-08-21
+  photo_url: MyString
+  profileable: one
+  profileable_type: Profileable
+
+two:
+  first_name: MyString
+  last_name: MyString
+  email: MyString
+  birthdate: 2018-08-21
+  photo_url: MyString
+  profileable: two
+  profileable_type: Profileable
