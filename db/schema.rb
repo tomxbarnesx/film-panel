@@ -10,9 +10,68 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2018_08_22_031722) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "admins", force: :cascade do |t|
+    t.integer "salary"
+    t.string "edu"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cohorts", force: :cascade do |t|
+    t.string "name"
+    t.date "start_date"
+    t.date "end_date"
+    t.integer "course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "courses", force: :cascade do |t|
+    t.string "name"
+    t.integer "total_hours"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "enrollments", force: :cascade do |t|
+    t.integer "profile_id"
+    t.integer "cohort_id"
+    t.integer "grade"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "instructors", force: :cascade do |t|
+    t.integer "salary"
+    t.string "edu"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.date "birthdate"
+    t.string "photo_url"
+    t.string "profileable_type"
+    t.bigint "profileable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "password"
+    t.index ["profileable_type", "profileable_id"], name: "index_profiles_on_profileable_type_and_profileable_id"
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.string "background"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
