@@ -8,16 +8,16 @@ class CoursesController < ApplicationController
 
     def show
         @course = Course.find(params[:id])
-    # method: get
-    # action: index
-    # template: courses/show.html.erb
+        # method: get
+        # action: index
+        # template: courses/show.html.erb
     end
 
     def new
         @course = Course.new
-    # method: get
-    # action: index
-    # template: courses/new.html.erb
+        # method: get
+        # action: index
+        # template: courses/new.html.erb
     end
 
     def edit
@@ -40,15 +40,22 @@ class CoursesController < ApplicationController
     def update
         @course = Course.find(params[:id])
  
-        if @course.update(coursee_params)
+        if @course.update(course_params)
             redirect_to @course
         else
             render 'edit'
         end
     end
+
+    def destroy
+        @course = Course.find(params[:id])
+        @course.destroy
+     
+        redirect_to courses_path
+    end
     
     private
-        def profile_params
-        params.require(:profile).permit(:first_name, :last_name, :email, :birthdate, :profileable_type)
+        def course_params
+        params.require(:course).permit(:name, :total_hours, :description)
         end
 end

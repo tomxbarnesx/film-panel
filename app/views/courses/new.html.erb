@@ -1,0 +1,8 @@
+<h1>Create New Course</h1>
+<br>
+<%= form_with scope: :course, url: courses_path, local: true do |form| %>
+    <%= form.text_field :name, placeholder: "Enter Name"%>
+    <%= number_field(:course, :total_hours, in: 0..300, step: 10) %>
+    <%= form.text_field :description, placeholder: "Enter a Description" %>
+    <%= form.submit %>
+<% end %>

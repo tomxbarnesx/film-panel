@@ -5,6 +5,10 @@
         <td><%= pro.birthdate %></td>
         <td><%= pro.profileable_type %></td>
         <td><%= pro.email %></td>
-        <%# <td><%= link_to "Destroy", profile, method: :delete, data: { confirm: "Are you sure?" } %></td>
+        <td><%= link_to 'Show', profile_path(pro) %></td>
+        <td><%= link_to 'Edit', edit_profile_path(pro) %></td>
+        <td><%= link_to 'Destroy', profile_path(pro),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
     </tr>
 <% end %>

@@ -1,0 +1,10 @@
+<div class="course-card">
+    <h1> <%= @course.name %> </h1>
+    <p><strong>Total Hours:</strong> <%= @course.total_hours %></p>
+    <% conn_arr = [] %>
+    <% @course.cohorts.each do |connect| %>
+        <% conn_arr.push(connect) %>
+    <% end %>
+    <p><strong>Number of Cohorts:</strong> <%= conn_arr.length %></p>
+    <p><strong>Description:</strong> <%= @course.description %></p>
+</div>
