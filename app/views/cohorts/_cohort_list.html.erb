@@ -1,0 +1,14 @@
+<% @cohorts.each do |coho| %>
+    <tr>
+        <td><%= coho.name %></td>
+        <td><%= coho.course.name %></td>
+        <td><%= coho.start_date %></td>
+        <td><%= coho.end_date %></td>
+        <td><%= coho.enrollments.length %></td>
+        <td><%= link_to 'Show', cohort_path(coho) %></td>
+        <td><%= link_to 'Edit', edit_cohort_path(coho) %></td>
+        <td><%= link_to 'Destroy', cohort_path(coho),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+<% end %>

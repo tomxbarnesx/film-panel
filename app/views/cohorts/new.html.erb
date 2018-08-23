@@ -1,0 +1,9 @@
+<h1>Create New Cohort</h1>
+<br>
+<%= form_with scope: :cohort, url: cohorts_path, local: true do |form| %>
+    <%= form.text_field :name, placeholder: "Enter Name"%>
+    <%= date_field(:cohort, :start_date) %>
+    <%= date_field(:cohort, :end_date) %>
+    <%= collection_select(:cohort, :course_id, Course.all, :id, :name) %>
+    <%= form.submit %>
+<% end %>

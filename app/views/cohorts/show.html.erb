@@ -1,0 +1,32 @@
+<div class="cohort-card">
+    <h1> <%= @cohort.name %> </h1>
+    <p><strong>Course:</strong> <%= @cohort.course.name %></p>
+    <p><strong>Start Date:</strong> <%= @cohort.start_date %></p>
+    <p><strong>End Date:</strong> <%= @cohort.end_date %></p>
+    <br>
+    <h2>Roster</h2>
+    <p><a href="/cohorts/<%= @cohort.id %>/enrollments/new">Add Members</a></p>
+    <table>
+        <tr>
+            <th>First Name</th> 
+            <th>Type</h1>
+            <th>Birthdate</th>
+            <th>Email</th>
+            <th colspan="3">Options</th>
+        </tr>
+    <% @cohort.enrollments.each do |coho| %>
+        <tr>
+            <td><%= coho.profile.first_name %></td>
+            <td><%= coho.profile.last_name %></td>
+            <td><%= coho.profile.profileable_type %></td>
+            <td><%= coho.profile.birthdate %></td>
+            <td><%= coho.profile.email %></td>
+            <td><%= link_to 'Show', cohort_enrollment_path(@cohort.id, coho.id) %></td>
+            <td><%= link_to 'Edit', edit_cohort_enrollment_path(@cohort.id, coho.id) %></td>
+            <td><%= link_to 'Destroy', cohort_enrollment_path(@cohort.id, coho.id),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+    <% end %>
+    </table>
+</div>

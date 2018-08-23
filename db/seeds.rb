@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Course.create(name: "Animation and Effects", total_hours: "220");
-Course.create(name: "Empathic Directing", total_hours: "300");
+Course.create(name: "Animation and Effects", total_hours: "220", description: "It's time to put on makeup. It's time to dress up right. It's time to raise the curtain on the Muppet Show tonight. If you have a problem if no one else can help and if you can find them maybe you can hire The A-Team. Doin' it our way. Nothin's gonna turn us back now.");
+Course.create(name: "Empathic Directing", total_hours: "300", description: "It's time to put on makeup. It's time to dress up right. It's time to raise the curtain on the Muppet Show tonight. If you have a problem if no one else can help and if you can find them maybe you can hire The A-Team. Doin' it our way. Nothin's gonna turn us back now.");
 
 Cohort.create(name: "Animation - Summer 2018", start_date: "20180601", end_date: "20180831", course_id: 1);
 Cohort.create(name: "Directing - Summer 2018", start_date: "20180601", end_date: "20180830", course_id: 2);
@@ -18,12 +18,14 @@ Admin.create(salary: 100000, edu: "PhD")
 Profile.create(first_name: "Tom", last_name: "Barnes", email: "hotchiligumption@gmail.com", birthdate: "19900313", photo_url: "https://www.shareicon.net/data/256x256/2016/09/01/822747_user_512x512.png", profileable_type: "Admin", profileable_id: 1, password: "1234");
 
 i = 1
+j = 2
 while i < 21 do
     randoco = rand(1..4)
     Student.create(background: Faker::Job.field)
     Profile.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, birthdate: Faker::Date.birthday(18, 65), photo_url: "https://www.shareicon.net/data/256x256/2016/09/01/822751_user_512x512.png", profileable_type: "Student", profileable_id: i, password: Faker::Internet.password(4, 6));
-    Enrollment.create(profile_id: i, cohort_id: randoco, grade: 100)
+    Enrollment.create(profile_id: j, cohort_id: randoco, grade: 100)
     i += 1
+    j += 1
 end
 
 k = 1
@@ -32,6 +34,7 @@ while k < 5 do
     randoco2 = rand(1..4)
     Instructor.create(salary: rando, edu: "Masters")
     Profile.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, birthdate: Faker::Date.birthday(22, 65), photo_url: "https://www.shareicon.net/data/256x256/2016/09/01/822761_user_512x512.png", profileable_type: "Instructor", profileable_id: k, password: Faker::Internet.password(4, 6));
-    Enrollment.create(profile_id: k, cohort_id: randoco2)
+    Enrollment.create(profile_id: i, cohort_id: randoco2)
     k += 1
+    i += 1
 end

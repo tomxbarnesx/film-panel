@@ -1,10 +1,11 @@
 <h1>Create New Profile</h1>
-<div>
-    <button>Student</button>
-    <button>Instructor</button>
-    <button>Admin</button>
+<div id="profile-button-div">
+    <button id="stud_button">Student</button>
+    <button id="instruct_button">Instructor</button>
+    <button id="admin-button">Admin</button>
 </div>
 <br>
+<div id="student-add" style="display:none">
 <%= form_with scope: :profile, url: profiles_path, local: true do |form| %>
     <%= form.text_field :first_name, placeholder: "Enter First Name"%>
     <%= form.text_field :last_name, placeholder: "Enter Last Name"%>
@@ -13,3 +14,28 @@
     <%= select(:profile, :profileable_type, @profile_options) %>
     <%= form.submit %>
 <% end %>
+</div>
+
+<div id="instructor-add" style="display:none">
+<%= form_with scope: :profile, url: profiles_path, local: true do |form| %>
+    <%= form.text_field :first_name, placeholder: "Enter First Name"%>
+    <%= form.text_field :last_name, placeholder: "Enter Last Name"%>
+    <%= date_field(:profile, :birthdate) %>
+    <%= form.text_field :email, placeholder: "Enter Email" %>
+    <%= select(:profile, :profileable_type, @profile_options) %>
+    <%= form.submit %>
+<% end %>
+</div>
+
+<div id="admin-add" style="display:none">
+<%= form_with scope: :profile, url: profiles_path, local: true do |form| %>
+    <%= form.text_field :first_name, placeholder: "Enter First Name"%>
+    <%= form.text_field :last_name, placeholder: "Enter Last Name"%>
+    <%= date_field(:profile, :birthdate) %>
+    <%= form.text_field :email, placeholder: "Enter Email" %>
+    <%= select(:profile, :profileable_type, @profile_options) %>
+    <%= form.submit %>
+<% end %>
+</div>
+
+<%= javascript_include_tag 'profile_type' %>

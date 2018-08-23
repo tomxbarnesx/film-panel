@@ -1,0 +1,6 @@
+<h1>Create New Enrollment</h1>
+<br>
+<%= form_with scope: :enrollment, url: cohort_enrollments_path, local: true do |form| %>
+    <%= collection_select(:enrollment, :profile_id, Profile.all, :id, :full_name) %>
+    <%= form.submit %>
+<% end %>
