@@ -1,0 +1,14 @@
+<h1>Edit Admin Profile</h1>
+
+<%= form_for @admin do |f|%>
+    <%= fields_for :profile, @admin.profile do |p| %>
+        <%= p.text_field :first_name %>
+        <%= p.text_field :last_name %>
+        <%= p.text_field :email %>
+        <%= p.text_field :photo_url %>
+        <%= p.text_field :password %>
+    <% end %>
+    <%= f.text_field :salary %>
+    <%= f.text_field :edu %>
+    <%= f.button :submit %>
+<% end %>

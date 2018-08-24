@@ -1,0 +1,14 @@
+<h1>Create New Student</h1>
+
+<%= form_for @student do |f|%>
+    <%= fields_for :profile, @student.profile do |p| %>
+        <%= p.text_field :first_name, placeholder: "Enter First Name" %>
+        <%= p.text_field :last_name, placeholder: "Enter Last Name" %>
+        <%= date_field(:profile, :birthdate) %>
+        <%= p.text_field :email, placeholder: "Enter Email" %>
+        <%= p.text_field :photo_url, placeholder: "Enter Photo URL" %>
+        <%= p.text_field :password, placeholder: "Enter Temp Password" %>
+    <% end %>
+    <%= f.text_field :background, placeholder: "Enter Background" %>
+    <%= f.button :submit %>
+<% end %>

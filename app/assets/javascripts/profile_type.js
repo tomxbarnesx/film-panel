@@ -1,4 +1,4 @@
-let studentButton = document.querySelector("stud_button");
+let studentButton = document.getElementById("stud-button");
 let instructorButton = document.getElementById("instruct-button");
 let adminButton = document.getElementById("admin-button");
 
@@ -23,4 +23,3 @@ adminButton.addEventListener("click", () => {
     adminForm.style.display = "block";
     profileDiv.style.display = "none";
 });
-

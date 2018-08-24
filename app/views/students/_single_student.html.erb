@@ -1,0 +1,10 @@
+<h1><%= @student.profile.first_name %> <%= @student.profile.last_name %></h1>
+<p><strong>Profile Type:</strong> <%= @student.profile.profileable_type %></p>
+<p><strong>Birthdate:</strong> <%= @student.profile.birthdate %></p>
+<p><strong>Background:</strong> <%= @student.background %></p>
+<p><strong>Email:</strong> <%= @student.profile.email %></p>
+<ul><strong>Cohorts:</strong></ul>
+<% @student.profile.enrollments.each do |e| %>
+    <li><%= e.cohort.name %></li>
+<% end %>
+</ul>

@@ -1,0 +1,16 @@
+<% @instructors.each do |inst| %>
+    <tr>
+        <td><%= inst.profile.first_name %></td>
+        <td><%= inst.profile.last_name %></td>
+        <td><%= inst.profile.birthdate %></td>
+        <td><%= inst.profile.profileable_type %></td>
+        <td><%= inst.profile.email %></td>
+        <td><%= inst.salary %></td>
+        <td><%= inst.edu %></td>
+        <td><%= link_to 'Show', instructor_path(inst) %></td>
+        <td><%= link_to 'Edit', edit_instructor_path(inst) %></td>
+        <td><%= link_to 'Destroy', instructor_path(inst),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+<% end %>

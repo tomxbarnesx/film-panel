@@ -1,0 +1,15 @@
+<% @students.each do |stu| %>
+    <tr>
+        <td><%= stu.profile.first_name %></td>
+        <td><%= stu.profile.last_name %></td>
+        <td><%= stu.profile.birthdate %></td>
+        <td><%= stu.profile.profileable_type %></td>
+        <td><%= stu.profile.email %></td>
+        <td><%= stu.background %></td>
+        <td><%= link_to 'Show', student_path(stu) %></td>
+        <td><%= link_to 'Edit', edit_student_path(stu) %></td>
+        <td><%= link_to 'Destroy', student_path(stu),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+<% end %>

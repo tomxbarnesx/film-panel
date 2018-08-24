@@ -13,11 +13,11 @@ class ProfilesController < ApplicationController
     end
 
     def new
+        @profile_options = [["Student",1],["Instructor",2], ["Admin", 3]]
         @profile = Profile.new
     # method: get
     # action: index
     # template: profiles/new.html.erb
-        @profile_options = [["Student",1],["Instructor",2], ["Admin", 3]]
     end
 
     def edit
@@ -27,6 +27,7 @@ class ProfilesController < ApplicationController
 
     def create
         @profile = Profile.new(profile_params)
+        profile.student.build(params[:background])
  
         if @profile.save
             redirect_to @profile
@@ -44,10 +45,16 @@ class ProfilesController < ApplicationController
             render 'edit'
         end
     end
+
+    def destroy
+        @profile = Profile.find(params[:id])
+        @profile.destroy
+     
+        redirect_to profiles_path
+    end
     
     private
         def profile_params
-        params.require(:profile).permit(:first_name, :last_name, :email, :birthdate, :profileable_type)
+        params.require(:profile).permit(:first_name, :last_name, :email, :birthdate, :profileable_type, :profileable_id)
         end
-
 end
