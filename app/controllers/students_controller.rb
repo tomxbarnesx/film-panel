@@ -7,6 +7,7 @@ class StudentsController < ApplicationController
 
     def show
         @student = Student.find(params[:id])
+        @enrollment = Enrollment.find(params[:id])
         # method: get
         # action: index
         # template: profiles/show.html.erb
